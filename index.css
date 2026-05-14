@@ -1,0 +1,76 @@
+/* =========================================================
+   Lab 10 — estilos globales
+   Demuestra:
+   - Sobrescritura de variables CSS de los componentes desde fuera.
+   - Uso de ::part() para alcanzar elementos dentro del Shadow DOM.
+   ========================================================= */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #f5f5f5;
+}
+
+.contenedor-principal {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+/* ---------- Personalizamos el cuadrado vía variables CSS ---------- */
+.cuadrado-aula {
+    --cuadrado-bg: #2980b9;
+    --cuadrado-borde: #1a6fa0;
+    --cuadrado-texto-color: #ffffff;
+    --cuadrado-final-bg: #ffffff;
+    --cuadrado-final-color: #2980b9;
+}
+
+/* ---------- Estilizamos partes internas con ::part() ---------- */
+.cuadrado-aula::part(contenedor) {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.cuadrado-aula::part(fila):hover {
+    background: rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+}
+
+.cuadrado-aula::part(flecha) {
+    transition: transform 0.2s ease;
+}
+
+.cuadrado-aula::part(fila):hover ::part(flecha) {
+    transform: translateX(4px);
+}
+
+/* ---------- Personalizamos el poster vía variables CSS ---------- */
+.poster-acoso {
+    --poster-bg: #c8922a;
+    --badge-morado-bg: #6a1fc2;
+    --badge-verde-bg: #00b89c;
+    --texto-color: #4a2000;
+    --qr-color: #4a2000;
+}
+
+/* ---------- Estilizamos partes internas del poster con ::part() ---------- */
+.poster-acoso::part(poster) {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.poster-acoso::part(qr-placeholder) {
+    transition: transform 0.3s ease;
+}
+
+.poster-acoso::part(qr-placeholder):hover {
+    transform: scale(1.1);
+}
+
+.poster-acoso::part(footer-ucr) {
+    letter-spacing: 1px;
+}
