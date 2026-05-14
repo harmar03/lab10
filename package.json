@@ -1,0 +1,12 @@
+{
+	"scripts": {
+		"start": "servor src index.html 8080",
+		"deploy": "gh-pages -d src"
+	},
+	"dependencies": {
+		"servor": "^4.0.2"
+	},
+	"devDependencies": {
+		"gh-pages": "^6.3.0"
+	}
+}

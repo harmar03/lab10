@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 10 - Shadow DOM, Slots, CSS Variables y CSS Parts</title>
+  <link rel="stylesheet" href="index.css">
+  <script type="module" src="index.js"></script>
+</head>
+<body>
+  <div class="contenedor-principal">
+
+    <lab2-cuadrado
+      class="cuadrado-aula"
+      items='["Aula 5,6,7","Apoyo Informatico","Servidores","Laboratorio 1y2","Coordinacion Informatica Empresarial"]'>
+      <span slot="final">UCR</span>
+    </lab2-cuadrado>
+
+    <lab2-poster class="poster-acoso" imagen="imagenes/imagenchicos.png">
+      <span slot="badge1">¡LA SEDE</span>
+      <span slot="badge2">TE</span>
+      <span slot="badge3">ACOMPAÑA!</span>
+      <p slot="mensaje1">El respeto no se negocia</p>
+      <p slot="mensaje2">¡Pará ya de acosar!</p>
+      <p slot="qr-texto">Si necesitas ayuda<br>escanea este QR</p>
+      <span slot="footer-titulo">UCR Libre de<br>Acoso Sexual</span>
+      <span slot="footer-subtitulo">SG Sede de<br>Guanacaste</span>
+    </lab2-poster>
+
+  </div>
+</body>
+</html>
